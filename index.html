@@ -112,20 +112,20 @@ button{font-family:inherit;cursor:pointer}
 
 /* ================= 情境對話 module ================= */
 .scene-wrap{display:flex;flex-direction:column;align-items:center;gap:22px}
-.flipcard{width:100%;max-width:880px;perspective:2000px}
+.flipcard{width:100%;max-width:600px;perspective:2000px}
 .flipcard-inner{position:relative;width:100%;display:grid;transition:transform .55s;transform-style:preserve-3d}
 .flipcard.flipped .flipcard-inner{transform:rotateY(180deg)}
-.face{grid-area:1/1;position:relative;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:34px;padding:32px 30px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:22px;box-shadow:0 16px 34px rgba(0,0,0,.12);min-height:560px}
+.face{grid-area:1/1;position:relative;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:34px;padding:24px 22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;box-shadow:0 16px 34px rgba(0,0,0,.12);min-height:440px}
 .face-front{background:linear-gradient(160deg,#fff,#f4f0ff)}
 .face-back{background:linear-gradient(160deg,#eafff6,#e7f6ff);transform:rotateY(180deg)}
 .scene-photo{width:100%;border-radius:20px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.12);border:4px solid #fff;background:#fff;line-height:0}
 .scene-photo img,.scene-photo svg{width:100%;height:auto;max-height:62vh;object-fit:contain;display:block;margin:0 auto}
-.scene-situ{font-size:2rem;font-weight:700;color:#1e293b;line-height:1.6}
-.scene-icons{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:4px}
-.scene-icons svg{width:92px;height:92px}
+.scene-situ{font-size:1.45rem;font-weight:700;color:#1e293b;line-height:1.6}
+.scene-icons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+.scene-icons svg{width:64px;height:64px}
 .flip-hint{font-size:1.1rem;color:#94a3b8;font-weight:600}
-.back-title{font-size:1.5rem;font-weight:800;color:#0f766e}
-.back-ans{font-size:2rem;font-weight:700;color:#0f172a;background:#fff;border-radius:22px;padding:18px 24px;width:100%}
+.back-title{font-size:1.15rem;font-weight:800;color:#0f766e}
+.back-ans{font-size:1.45rem;font-weight:700;color:#0f172a;background:#fff;border-radius:22px;padding:14px 18px;width:100%}
 .scene-nav{display:flex;gap:18px;align-items:center;justify-content:center}
 .nav-btn{border:0;background:#f1f5f9;color:#334155;font-weight:800;font-size:1.4rem;border-radius:50%;width:56px;height:56px}
 .scene-count{font-size:1.05rem;font-weight:700;color:#475569}
@@ -136,7 +136,7 @@ button{font-family:inherit;cursor:pointer}
   .home-title{font-size:2.4rem}
   .mode-btn{padding:22px 18px}
   .mode-btn .mt{font-size:1.35rem}
-  .face{min-height:440px;padding:22px 16px;gap:16px}
+  .face{min-height:380px;padding:20px 14px;gap:14px}
   .scene-situ{font-size:1.4rem}
   .back-ans{font-size:1.35rem}
   .scene-icons svg{width:64px;height:64px}
@@ -4433,7 +4433,7 @@ function renderScene(){
   const d = s[L];
   document.getElementById('scene-count').textContent =
     (L==='tw' ? `第 ${sceneIdx+1} / ${SCENARIOS.length} 題` : `第 ${sceneIdx+1} / ${SCENARIOS.length} 题`);
-  let iconsHtml = s.icons.map(k=>iconSvg(k,92)).join('');
+  let iconsHtml = s.icons.map(k=>iconSvg(k,64)).join('');
   const photoInner = s.photoType === 'svg' ? s.photo : `<img src="${s.photo}" alt="">`;
   document.getElementById('face-front').innerHTML = `
     <div class="scene-photo">${photoInner}</div>
